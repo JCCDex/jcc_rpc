@@ -1,0 +1,33 @@
+{
+  "name": "jc_api",
+  "version": "1.0.0",
+  "description": "api about jc",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCCDex/jc_api.git"
+  },
+  "keywords": [
+    "api",
+    "jc",
+    "decentralized",
+    "cross-chain",
+    "exchange"
+  ],
+  "author": "GinMu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JCCDex/jc_api/issues"
+  },
+  "homepage": "https://github.com/JCCDex/jc_api#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
+}
