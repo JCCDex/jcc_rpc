@@ -3,7 +3,7 @@ const expect = chai.expect;
 
 describe('test jc exchange', function () {
 
-    const jcExchange = require('../lib/exchange');
+    const jcExchange = require('../src/exchange');
     let hosts = ["ewdjbbl8jgf.weidex.vip", "ektjsbdyfg.weidex.vip"];
     let instance = new jcExchange(hosts, 443, true);
     it('get balance', async function () {

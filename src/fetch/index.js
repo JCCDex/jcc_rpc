@@ -1,21 +1,21 @@
 'use strict';
+const axios = require('axios');
 
-var axios = require('axios');
-
-var service = axios.create({
+const service = axios.create({
     withCredentials: true,
     timeout: 30000
-});
+})
 
-var isObject = function isObject(obj) {
+const isObject = (obj) => {
     return Object.prototype.toString.call(obj) === '[object Object]';
-};
+}
 
-var handleResponse = function handleResponse(res) {
-    var response = {};
+const handleResponse = (res) => {
+    let response = {};
     if (res.status === 200) {
-        var data = res.data;
-
+        let {
+            data
+        } = res;
         if (isObject(data)) {
             if (data.code === '0') {
                 response.result = true;
@@ -25,27 +25,27 @@ var handleResponse = function handleResponse(res) {
             } else {
                 response.result = false;
                 response.code = data.code;
-                response.msg = data.msg;
+                response.msg = data.msg
             }
         } else {
             response.result = true;
             response.data = data;
         }
-        return response;
+        return response
     }
     return {
         result: false,
         msg: res.statusText
-    };
-};
+    }
+}
 
-service.interceptors.response.use(function (response) {
+service.interceptors.response.use(response => {
     return handleResponse(response);
-}, function (error) {
+}, (error) => {
     return {
         result: false,
         msg: error.message
-    };
+    }
 });
 
 module.exports = service;

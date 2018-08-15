@@ -1,9 +1,10 @@
 {
   "name": "jc_api",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "api about jc",
   "main": "index.js",
   "scripts": {
+    "compile": "./node_modules/.bin/babel src --out-dir lib",
     "test": "mocha"
   },
   "repository": {
@@ -24,9 +25,12 @@
   },
   "homepage": "https://github.com/JCCDex/jc_api#readme",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "jc_utils": "^1.0.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "mocha": "^5.2.0"
   }
