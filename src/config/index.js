@@ -21,4 +21,4 @@ class JcConfig extends Basic {
     }
 }
 
-module.exports = JcInfo;
+module.exports = JcConfig;
