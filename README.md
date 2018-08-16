@@ -3,7 +3,7 @@
 ## Installation
 
 ```javascript
-npm install jc_api
+npm install jcc_api
 ```
 
 ## Exchange API of JC
@@ -12,7 +12,7 @@ npm install jc_api
 
 ```javascript
   const JcExchange = require("jcc_api").JcExchange
-  // import { JcExchange } from 'jc_api'
+  // import { JcExchange } from 'jcc_api'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -67,7 +67,7 @@ let res = await instance.transferAccount(sign)
 
 ```javascript
   const JcInfo = require("jcc_api").JcInfo
-  // import { JcInfo } from 'jc_api'
+  // import { JcInfo } from 'jcc_api'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -110,7 +110,7 @@ let res = await instance.getHistory(base, counter, type, time)
 
 ```javascript
   const JcConfig = require("jcc_api").JcConfig
-  // import { JcConfig } from 'jc_api'
+  // import { JcConfig } from 'jcc_api'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -129,7 +129,7 @@ let res = await instance.getConfig()
 
 ```javascript
   const JcBiz = require("jcc_api").JcBiz
-  // import { JcBiz } from 'jc_api'
+  // import { JcBiz } from 'jcc_api'
   let hosts = ["xxx"]
   let port = 443
   let https = true

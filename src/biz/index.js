@@ -234,15 +234,6 @@ class JcBiz extends Basic {
         return res;
     }
 
-    async bank_list(userName) {
-        let params = {
-            url: this.getHost() + '/app/bank/bank_list/' + getUUID() + '/' + userName,
-            method: 'get'
-        }
-        let res = await fetch(params);
-        return res;
-    }
-
     async getHelp(url) {
         let params = {
             url: this.getHost() + url,
