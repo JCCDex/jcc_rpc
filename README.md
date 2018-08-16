@@ -8,7 +8,7 @@ npm install jc_api
 
 ## Exchange API of JC
 
-### Usage
+### Usage Example of Exchange
 
 ```javascript
   const JcExchange = require("jcc_api").JcExchange
@@ -28,7 +28,7 @@ let res = await instance.getBalance(address)
 ### getHistoricTransactions
 
 ```javascript
-let res = await instance.getHistoricTransactions(address, page, ledger,seq)
+let res = await instance.getHistoricTransactions(address, page, ledger, seq)
 ```
 
 ### getOrders
@@ -59,4 +59,47 @@ let res = await instance.getSequence(address)
 
 ```javascript
 let res = await instance.transferAccount(sign)
+```
+
+## Info API of JC
+
+### Usage Example of Info
+
+```javascript
+  const JcInfo = require("jcc_api").JcInfo
+  // import { JcInfo } from 'jc_api'
+  let hosts = ["xxx"]
+  let port = 443
+  let https = true
+  let instance = new JcInfo(hosts, port, https)
+```
+
+### getTicker
+
+```javascript
+let res = await instance.getTicker(base, counter)
+```
+
+### getAllTickers
+
+```javascript
+let res = await instance.getAllTickers()
+```
+
+### getDepth
+
+```javascript
+let res = await instance.getDepth(base, counter, type)
+```
+
+### getKline
+
+```javascript
+let res = await instance.getKline(base, counter, type)
+```
+
+### getHistory
+
+```javascript
+let res = await instance.getHistory(base, counter, type, time)
 ```
