@@ -103,3 +103,22 @@ let res = await instance.getKline(base, counter, type)
 ```javascript
 let res = await instance.getHistory(base, counter, type, time)
 ```
+
+## Config API of JC
+
+### Usage Example of Config
+
+```javascript
+  const JcConfig = require("jcc_api").JcConfig
+  // import { JcConfig } from 'jc_api'
+  let hosts = ["xxx"]
+  let port = 443
+  let https = true
+  let instance = new JcConfig(hosts, port, https)
+```
+
+### getConfig
+
+```javascript
+let res = await instance.getConfig()
+```
