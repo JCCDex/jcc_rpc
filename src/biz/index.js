@@ -1,6 +1,5 @@
 'use strict';
-const jcUUID = require('jc_utils').jcUUID;
-const getUUID = jcUUID.getUUID;
+const getUUID = require('jcc_utils').getUUID;
 const fetch = require('../fetch');
 const Basic = require('../Basic');
 

@@ -1,6 +1,6 @@
 {
-  "name": "jc_api",
-  "version": "0.1.3",
+  "name": "jcc_api",
+  "version": "0.0.1",
   "description": "api about jc",
   "main": "lib/index.js",
   "scripts": {
@@ -18,7 +18,7 @@
     "cross-chain",
     "exchange"
   ],
-  "author": "GinMu",
+  "author": "JCCDex",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/JCCDex/jc_api/issues"
@@ -26,7 +26,7 @@
   "homepage": "https://github.com/JCCDex/jc_api#readme",
   "dependencies": {
     "axios": "^0.18.0",
-    "jc_utils": "^1.0.1"
+    "jcc_utils": "^0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

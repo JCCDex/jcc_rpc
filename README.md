@@ -11,7 +11,7 @@ npm install jc_api
 ### Usage
 
 ```javascript
-  const JcExchange = require("jc_api").JcExchange
+  const JcExchange = require("jcc_api").JcExchange
   // import { JcExchange } from 'jc_api'
   let hosts = ["xxx"];
   let port = 443;
