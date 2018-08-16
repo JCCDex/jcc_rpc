@@ -22,7 +22,7 @@ npm install jcc_api
 ### getBalances
 
 ```javascript
-let res = await instance.getBalance(address)
+let res = await instance.getBalances(address)
 ```
 
 ### getHistoricTransactions
