@@ -1,6 +1,5 @@
 'use strict';
 
-
 const fetch = require('../fetch');
 const Basic = require('../Basic');
 
@@ -11,8 +10,8 @@ class JcInfo extends Basic {
 
     /**
      * get ticker info
-     * @param {string} base 
-     * @param {string} counter 
+     * @param {string} base
+     * @param {string} counter
      */
     async getTicker(base, counter) {
         let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
@@ -37,10 +36,9 @@ class JcInfo extends Basic {
     }
 
     /**
-     * 
-     * @param {string} base 
-     * @param {string} counter 
-     * @param {string} type 
+     * @param {string} base
+     * @param {string} counter
+     * @param {string} type
      */
     async getDepth(base, counter, type) {
         let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
@@ -53,10 +51,9 @@ class JcInfo extends Basic {
     }
 
     /**
-     * 
-     * @param {string} base 
-     * @param {string} counter 
-     * @param {string} type 
+     * @param {string} base
+     * @param {string} counter
+     * @param {string} type
      */
     async getKline(base, counter, type) {
         let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
@@ -69,10 +66,9 @@ class JcInfo extends Basic {
     }
 
     /**
-     * 
-     * @param {string} base 
-     * @param {string} counter 
-     * @param {string} type 
+     * @param {string} base
+     * @param {string} counter
+     * @param {string} type
      * @param {unix time} time
      */
     async getHistory(base, counter, type, time) {

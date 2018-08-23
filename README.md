@@ -1,4 +1,4 @@
-# jc_api
+# jcc_api
 
 ## Installation
 

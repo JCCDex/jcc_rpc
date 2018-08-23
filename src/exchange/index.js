@@ -21,10 +21,10 @@ class JcExchange extends Basic {
 
     /**
      * get historic transactions with jingtum address
-     * @param {hex string} address 
-     * @param {number} page 
-     * @param {number} ledger 
-     * @param {number} seq 
+     * @param {hex string} address
+     * @param {number} page
+     * @param {number} ledger
+     * @param {number} seq
      */
     async getHistoricTransactions(address, page, ledger = 0, seq = 0) {
         let url = this.getHost() + '/exchange/tx/' + address + '/' + page
@@ -44,8 +44,8 @@ class JcExchange extends Basic {
 
     /**
      * get current orders with jingtum address
-     * @param {hex string} address 
-     * @param {number} page 
+     * @param {hex string} address
+     * @param {number} page
      */
     async getOrders(address, page) {
         let data = {
@@ -59,7 +59,7 @@ class JcExchange extends Basic {
 
     /**
      * create order
-     * @param {hex string} sign 
+     * @param {hex string} sign
      */
     async createOrder(sign) {
         let params = {
@@ -75,7 +75,7 @@ class JcExchange extends Basic {
 
     /**
      * cancel an order
-     * @param {hex string} sign 
+     * @param {hex string} sign
      */
     async deleteOrder(sign) {
         let params = {
@@ -104,7 +104,7 @@ class JcExchange extends Basic {
 
     /**
      * transfer account
-     * @param {hex string} sign 
+     * @param {hex string} sign
      */
     async transferAccount(sign) {
         let params = {
