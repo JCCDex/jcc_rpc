@@ -1,5 +1,5 @@
 const fetch = require('../fetch');
-const Basic = require('../Basic');
+const Basic = require('../basic');
 
 class JcExchange extends Basic {
     constructor(hosts, port, https) {

@@ -1,7 +1,7 @@
 'use strict';
-const getUUID = require('jcc_utils').getUUID;
+const getUUID = require('jcc_common').getUUID;
 const fetch = require('../fetch');
-const Basic = require('../Basic');
+const Basic = require('../basic');
 
 class JcBiz extends Basic {
     constructor(hosts, port, https) {

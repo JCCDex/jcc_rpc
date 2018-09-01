@@ -1,9 +1,13 @@
-# jcc_api
+# jcc_rpc
+
+![npm](https://img.shields.io/npm/v/jcc_rpc.svg)
+[![Build Status](https://travis-ci.com/JCCDex/jcc_rpc.svg?branch=master)](https://travis-ci.com/JCCDex/jcc_rpc)
+[![npm downloads](https://img.shields.io/npm/dm/jcc_rpc.svg)](http://npm-stat.com/charts.html?package=jcc_rpc)
 
 ## Installation
 
 ```javascript
-npm install jcc_api
+npm install jcc_rpc
 ```
 
 ## Exchange API of JC
@@ -11,8 +15,8 @@ npm install jcc_api
 ### Usage Example of Exchange
 
 ```javascript
-  const JcExchange = require("jcc_api").JcExchange
-  // import { JcExchange } from 'jcc_api'
+  const JcExchange = require("jcc_rpc").JcExchange
+  // import { JcExchange } from 'jcc_rpc'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -66,8 +70,8 @@ let res = await instance.transferAccount(sign)
 ### Usage Example of Info
 
 ```javascript
-  const JcInfo = require("jcc_api").JcInfo
-  // import { JcInfo } from 'jcc_api'
+  const JcInfo = require("jcc_rpc").JcInfo
+  // import { JcInfo } from 'jcc_rpc'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -109,8 +113,8 @@ let res = await instance.getHistory(base, counter, type, time)
 ### Usage Example of Config
 
 ```javascript
-  const JcConfig = require("jcc_api").JcConfig
-  // import { JcConfig } from 'jcc_api'
+  const JcConfig = require("jcc_rpc").JcConfig
+  // import { JcConfig } from 'jcc_rpc'
   let hosts = ["xxx"]
   let port = 443
   let https = true
@@ -128,8 +132,8 @@ let res = await instance.getConfig()
 ### Usage Example of Biz
 
 ```javascript
-  const JcBiz = require("jcc_api").JcBiz
-  // import { JcBiz } from 'jcc_api'
+  const JcBiz = require("jcc_rpc").JcBiz
+  // import { JcBiz } from 'jcc_rpc'
   let hosts = ["xxx"]
   let port = 443
   let https = true

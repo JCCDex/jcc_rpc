@@ -1,19 +1,20 @@
 {
-  "name": "jcc_api",
-  "version": "0.0.1",
-  "description": "api about jcc",
+  "name": "jcc_rpc",
+  "version": "0.0.2",
+  "description": "rpc api of jcc",
   "files": [
     "lib"
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JCCDex/jcc_api.git"
+    "url": "git+https://github.com/JCCDex/jcc_rpc.git"
   },
   "keywords": [
+    "rpc",
     "api",
     "jcc",
     "decentralized",
@@ -23,11 +24,12 @@
   "author": "JCCDex",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JCCDex/jcc_api/issues"
+    "url": "https://github.com/JCCDex/jcc_rpc/issues"
   },
-  "homepage": "https://github.com/JCCDex/jcc_api#readme",
+  "homepage": "https://github.com/JCCDex/jcc_rpc#readme",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "jcc_common": "0.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -36,6 +38,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^7.0.1",

@@ -1,7 +1,7 @@
 'use strict';
 
 const fetch = require('../fetch');
-const Basic = require('../Basic');
+const Basic = require('../basic');
 
 class JcInfo extends Basic {
     constructor(hosts, port, https) {
