@@ -7,7 +7,8 @@
   ],
   "main": "lib/index.js",
   "scripts": {
-    "test": "gulp"
+    "test": "gulp",
+    "deploy": "./publish.sh"
   },
   "repository": {
     "type": "git",
