@@ -19,14 +19,10 @@ const handleResponse = (res) => {
         if (isObject(data)) {
             if (data.code === '0') {
                 response.result = true;
-                response.data = data.data;
-                response.code = data.code;
-                response.msg = data.msg;
             } else {
                 response.result = false;
-                response.code = data.code;
-                response.msg = data.msg
             }
+            Object.assign(response, data);
         } else {
             response.result = true;
             response.data = data;
