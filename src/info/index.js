@@ -86,6 +86,15 @@ class JcInfo extends Basic {
         let res = await fetch(data);
         return res;
     }
+
+    async getTickerFromCMC(token, currency) {
+        let params = {
+            url: this.getHost() + `/${token.toLowerCase()}_${currency.toLowerCase()}.json` + '?t=' + new Date().getTime(),
+            methods: 'get'
+        }
+        let res = await fetch(params);
+        return res;
+    }
 }
 
 module.exports = JcInfo;

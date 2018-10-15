@@ -108,6 +108,12 @@ let res = await instance.getKline(base, counter, type)
 let res = await instance.getHistory(base, counter, type, time)
 ```
 
+### getTickerFromCMC
+
+```javascript
+let res = await instance.getTickerFromCMC(token, currency)
+```
+
 ## Config API of JC
 
 ### Usage Example of Config
@@ -342,10 +348,4 @@ let res = await instance.getNewsReportList(count)
 
 ```javascript
 let res = await instance.getNoticeList(type, count)
-```
-
-### getTickerFromCMC
-
-```javascript
-let res = await instance.getTickerFromCMC(token, currency)
 ```
