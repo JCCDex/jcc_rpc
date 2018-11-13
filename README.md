@@ -29,11 +29,25 @@ npm install jcc_rpc
 let res = await instance.getBalances(address)
 ```
 
+Parameters
+
+`address`- `string`
+
 ### getHistoricTransactions
 
 ```javascript
 let res = await instance.getHistoricTransactions(address, page, ledger, seq)
 ```
+
+Parameters
+
+`address`- `string`
+
+`page` - `number`
+
+`ledger` - `number`
+
+`seq` - `number`
 
 ### getOrders
 
@@ -41,11 +55,21 @@ let res = await instance.getHistoricTransactions(address, page, ledger, seq)
 let res = await instance.getOrders(address, page)
 ```
 
+Parameters
+
+`address`- `string`
+
+`page` - `number`
+
 ### createOrder
 
 ```javascript
 let res = await instance.createOrder(sign)
 ```
+
+Parameters
+
+`sign`- `string`
 
 ### deleteOrder
 
@@ -53,17 +77,29 @@ let res = await instance.createOrder(sign)
 let res = await instance.deleteOrder(sign)
 ```
 
+Parameters
+
+`sign`- `string`
+
 ### getSequence
 
 ```javascript
 let res = await instance.getSequence(address)
 ```
 
+Parameters
+
+`address`- `string`
+
 ### transferAccount
 
 ```javascript
 let res = await instance.transferAccount(sign)
 ```
+
+Parameters
+
+`sign`- `string`
 
 ## Info API of JC
 
@@ -84,7 +120,22 @@ let res = await instance.transferAccount(sign)
 let res = await instance.getTicker(base, counter)
 ```
 
+Parameters
+
+`base`- `string`
+
+`counter`- `string`
+
+Example
+
+```js
+// request SWTC-CNY info
+let res = await instance.getTicker('swt', 'cny')
+```
+
 ### getAllTickers
+
+includes all tickers info.
 
 ```javascript
 let res = await instance.getAllTickers()
@@ -92,26 +143,91 @@ let res = await instance.getAllTickers()
 
 ### getDepth
 
+request ask and bid data.
+
 ```javascript
 let res = await instance.getDepth(base, counter, type)
 ```
 
+Parameters
+
+`base`- `string`
+
+`counter`- `string`
+
+`type`- `string`
+
+the type value includes `normal` and `more`. if the type is `normal`, maximum length of ask or bid data is 5, otherwise is 50.
+
+Example
+
+```js
+// request ask and bid data of SWTC-CNT
+let res = await instance.getDepth('swt', 'cnt', 'normal')
+```
+
 ### getKline
+
+request kline data.
 
 ```javascript
 let res = await instance.getKline(base, counter, type)
 ```
 
+Parameters
+
+`base`- `string`
+
+`counter`- `string`
+
+`type`- `string`
+
+the type value includes `hour`、`day`、`week` and `month`.
+
+Example
+
+```js
+// request each hour data of SWTC-CNT.
+let res = await instance.getKline('swt', 'cnt', 'hour')
+```
+
 ### getHistory
+
+request historic dealed data.
 
 ```javascript
 let res = await instance.getHistory(base, counter, type, time)
 ```
 
+Parameters
+
+`base`- `string`
+
+`counter`- `string`
+
+`type`- `string`
+
+`time`- `timestamp`
+
+the type value includes `all`、`more`、`newest`. if the type is `newest`, the time is required.
+
 ### getTickerFromCMC
+
+request token info from coinmarketdata. now support eth and btc.
 
 ```javascript
 let res = await instance.getTickerFromCMC(token, currency)
+```
+
+Parameters
+
+the token value includes `eth` and `btc`, the currency value includes `cny` and `rub` so far.
+
+Example
+
+```js
+// request eth's price that currency unit is ￥. if the currency is rub, the currency unit is ₽.
+let res = await instance.getTickerFromCMC('eth', 'cny')
 ```
 
 ## Config API of JC
