@@ -14,7 +14,7 @@ class JcInfo extends Basic {
      * @param {string} counter
      */
     async getTicker(base, counter) {
-        let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
+        let pair = base.toUpperCase() + '-' + counter.toUpperCase().replace(/CNT/i, 'CNY');
         let data = {
             url: this.getHost() + '/info/ticker/' + pair,
             method: 'get'
@@ -41,7 +41,7 @@ class JcInfo extends Basic {
      * @param {string} type
      */
     async getDepth(base, counter, type) {
-        let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
+        let pair = base.toUpperCase() + '-' + counter.toUpperCase().replace(/CNT/i, 'CNY');
         let data = {
             url: this.getHost() + '/info/depth/' + pair + '/' + type,
             method: 'get'
@@ -56,7 +56,7 @@ class JcInfo extends Basic {
      * @param {string} type
      */
     async getKline(base, counter, type) {
-        let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
+        let pair = base.toUpperCase() + '-' + counter.toUpperCase().replace(/CNT/i, 'CNY');
         let data = {
             url: this.getHost() + '/info/kline/' + pair + '/' + type,
             method: 'get'
@@ -72,7 +72,7 @@ class JcInfo extends Basic {
      * @param {unix time} time
      */
     async getHistory(base, counter, type, time) {
-        let pair = base + '-' + counter.replace(/CNT/i, 'CNY');
+        let pair = base.toUpperCase() + '-' + counter.toUpperCase().replace(/CNT/i, 'CNY');
         let url = this.getHost() + '/info/history/' + pair + '/' + type;
         let data = {
             url,
