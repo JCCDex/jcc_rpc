@@ -121,7 +121,7 @@ let res = await instance.getTickerFromCMC(token, currency)
 ```javascript
   const JcConfig = require("jcc_rpc").JcConfig
   // import { JcConfig } from 'jcc_rpc'
-  let hosts = ["xxx"]
+  let hosts = ["jccdex.cn", "weidex.vip"]
   let port = 443
   let https = true
   let instance = new JcConfig(hosts, port, https)
