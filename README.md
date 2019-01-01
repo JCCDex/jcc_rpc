@@ -4,6 +4,17 @@
 [![Build Status](https://travis-ci.com/JCCDex/jcc_rpc.svg?branch=master)](https://travis-ci.com/JCCDex/jcc_rpc)
 [![npm downloads](https://img.shields.io/npm/dm/jcc_rpc.svg)](http://npm-stat.com/charts.html?package=jcc_rpc)
 
+## preface
+jcc_rpc是对jccdex服务访问的统一入口工具，通过该开发包，可以动态获取当前可用的服务资源，将请求均衡负载，我们建议访问井畅的服务时使用该开发包，便于获得稳定的服务。
+
+
+* 支持浏览器 Support running in browsers 
+* 支持所有的井通联盟链 Support all jingtum alliance chains
+
+井畅应用交流群: 557524730
+
+JCCDex Tech support QQ group ID: 557524730
+
 ## Installation
 
 ```javascript
