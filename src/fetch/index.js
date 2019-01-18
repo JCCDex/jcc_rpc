@@ -1,5 +1,6 @@
 'use strict';
 const axios = require('axios');
+const url = require("url");
 const CancelToken = axios.CancelToken;
 
 const service = axios.create({
@@ -12,8 +13,9 @@ const isObject = (obj) => {
 }
 
 const cancelPendingTask = (config) => {
+    let parsedUrl = url.parse(config.url);
     pendingTasks.forEach((pendingTask, index) => {
-        if (config && pendingTask.url === config.url) {
+        if (config && pendingTask.pathname === parsedUrl.pathname) {
             pendingTask.cancel();
             pendingTasks.splice(index, 1)
         }
@@ -24,9 +26,10 @@ let pendingTasks = []
 
 service.interceptors.request.use(config => {
     cancelPendingTask(config)
+    let parsedUrl = url.parse(config.url);
     config.cancelToken = new CancelToken(cancel => {
         pendingTasks.push({
-            'url': config.url,
+            'pathname': parsedUrl.pathname,
             'cancel': cancel
         })
     });
