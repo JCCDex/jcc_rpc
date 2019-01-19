@@ -13,13 +13,30 @@ const isObject = (obj) => {
 }
 
 const cancelPendingTask = (config) => {
-    let parsedUrl = url.parse(config.url);
+    let pathname;
+    if (isObject(config)) {
+        let parsedUrl = url.parse(config.url);
+        pathname = parsedUrl.path + config.method;
+    }
     pendingTasks.forEach((pendingTask, index) => {
-        if (config && pendingTask.pathname === parsedUrl.pathname) {
+        if (pendingTask.pathname === pathname) {
             pendingTask.cancel();
             pendingTasks.splice(index, 1)
         }
     })
+}
+
+const removeFinishedTask = (config) => {
+    let pathname;
+    if (isObject(config)) {
+        let parsedUrl = url.parse(config.url);
+        pathname = parsedUrl.path + config.method;
+    }
+    pendingTasks.forEach((pendingTask, index) => {
+        if (pendingTask.pathname === pathname) {
+            pendingTasks.splice(index, 1)
+        }
+    });
 }
 
 let pendingTasks = []
@@ -29,7 +46,7 @@ service.interceptors.request.use(config => {
     let parsedUrl = url.parse(config.url);
     config.cancelToken = new CancelToken(cancel => {
         pendingTasks.push({
-            'pathname': parsedUrl.pathname,
+            'pathname': parsedUrl.path + config.method,
             'cancel': cancel
         })
     });
@@ -65,6 +82,7 @@ const handleResponse = (res) => {
 }
 
 service.interceptors.response.use(response => {
+    removeFinishedTask(response.config);
     return handleResponse(response);
 }, (error) => {
     if (axios.isCancel(error)) {
