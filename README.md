@@ -12,12 +12,16 @@ npm install jcc_rpc
 
 ## Exchange API of JC
 
+[Interface Documents](https://github.com/JCCDex/jcc_server_doc)
+
 ### Usage Example of Exchange
+
+Firstly call [getConfig](#config-api-of-jc). If success, the hosts's value is the value of `exHosts` from response.
 
 ```javascript
   const JcExchange = require("jcc_rpc").JcExchange
   // import { JcExchange } from 'jcc_rpc'
-  let hosts = ["xxx"]
+  let hosts = ["eth626892d.jccdex.cn"]
   let port = 443
   let https = true
   let instance = new JcExchange(hosts, port, https)
@@ -103,12 +107,16 @@ Parameters
 
 ## Info API of JC
 
+[Interface Documents](https://github.com/JCCDex/jcc_server_doc)
+
 ### Usage Example of Info
+
+Firstly call [getConfig](#config-api-of-jc). If success, the hosts's value is the value of `infoHosts` from response.
 
 ```javascript
   const JcInfo = require("jcc_rpc").JcInfo
   // import { JcInfo } from 'jcc_rpc'
-  let hosts = ["xxx"]
+  let hosts = ["i3b44eb75ef.jccdex.cn"]
   let port = 443
   let https = true
   let instance = new JcInfo(hosts, port, https)
