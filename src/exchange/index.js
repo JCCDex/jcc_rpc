@@ -26,13 +26,36 @@ class JcExchange extends Basic {
      * @param {number} ledger
      * @param {number} seq
      */
-    async getHistoricTransactions(address, page, ledger = 0, seq = 0) {
-        let url = this.getHost() + '/exchange/tx/' + address + '/' + page
+    async getHistoricTransactions(address, ledger, seq) {
+        let url = this.getHost() + '/exchange/tx/' + address;
         let data = {
             url,
             method: 'get'
         }
-        if (page > 1) {
+        if (Number.isInteger(ledger) && Number.isInteger(seq)) {
+            data.params = {
+                ledger,
+                seq
+            }
+        }
+        let res = await fetch(data);
+        return res;
+    }
+
+    /**
+     * get historic payments with jingtum address
+     * @param {hex string} address
+     * @param {number} page
+     * @param {number} ledger
+     * @param {number} seq
+     */
+    async getHistoricPayments(address, ledger, seq) {
+        let url = this.getHost() + '/exchange/payments/' + address;
+        let data = {
+            url,
+            method: 'get'
+        }
+        if (Number.isInteger(ledger) && Number.isInteger(seq)) {
             data.params = {
                 ledger,
                 seq

@@ -90,7 +90,9 @@ service.interceptors.response.use(response => {
     }
     return {
         result: false,
-        msg: error.message
+        msg: error.message,
+        host: error.host,
+        port: error.port
     }
 });
 

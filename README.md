@@ -40,14 +40,26 @@ Parameters
 ### getHistoricTransactions
 
 ```javascript
-let res = await instance.getHistoricTransactions(address, page, ledger, seq)
+let res = await instance.getHistoricTransactions(address, ledger, seq)
 ```
 
 Parameters
 
 `address`- `string`
 
-`page` - `number`
+`ledger` - `number`
+
+`seq` - `number`
+
+### getHistoricPayments
+
+```javascript
+let res = await instance.getHistoricPayments(address, ledger, seq)
+```
+
+Parameters
+
+`address`- `string`
 
 `ledger` - `number`
 
