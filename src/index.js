@@ -29,10 +29,12 @@ const JcBiz = require('./biz');
 const JcConfig = require('./config');
 const JcExchange = require('./exchange');
 const JcInfo = require('./info');
+const JcExplorer = require('./explorer');
 
 exports = module.exports = {
-    JcBiz,
-    JcConfig,
-    JcExchange,
-    JcInfo
+  JcBiz,
+  JcConfig,
+  JcExchange,
+  JcInfo,
+  JcExplorer
 }
