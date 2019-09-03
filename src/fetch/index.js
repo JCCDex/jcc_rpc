@@ -13,9 +13,9 @@ const isObject = (obj) => {
 }
 
 const cancelPendingTask = (config) => {
-  let pathname;
+  let pathname
   if (isObject(config)) {
-    let parsedUrl = url.parse(config.url);
+    const parsedUrl = url.URL(config.url);
     pathname = parsedUrl.path + config.method;
   }
   pendingTasks.forEach((pendingTask, index) => {
@@ -27,9 +27,9 @@ const cancelPendingTask = (config) => {
 }
 
 const removeFinishedTask = (config) => {
-  let pathname;
+  let pathname
   if (isObject(config)) {
-    let parsedUrl = url.parse(config.url);
+    const parsedUrl = url.URL(config.url);
     pathname = parsedUrl.path + config.method;
   }
   pendingTasks.forEach((pendingTask, index) => {
@@ -39,15 +39,15 @@ const removeFinishedTask = (config) => {
   });
 }
 
-let pendingTasks = []
+const pendingTasks = []
 
 service.interceptors.request.use(config => {
   cancelPendingTask(config)
-  let parsedUrl = url.parse(config.url);
+  const parsedUrl = url.URL(config.url);
   config.cancelToken = new CancelToken(cancel => {
     pendingTasks.push({
-      'pathname': parsedUrl.path + config.method,
-      'cancel': cancel
+      pathname: parsedUrl.path + config.method,
+      cancel
     })
   });
   return config;
@@ -57,12 +57,12 @@ service.interceptors.request.use(config => {
 })
 
 const handleResponse = (res) => {
-  let response = {};
+  const response = {};
   if (res.status === 200) {
-    let {
+    const {
       data
     } = res;
-    let date = res.headers.date;
+    const date = res.headers.date;
     if (isObject(data)) {
       if (data.code === '0') {
         response.result = true;

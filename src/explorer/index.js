@@ -15,14 +15,14 @@ class JcExplorer extends Basic {
    * @memberof JcExplorer
    */
   async getBalances(uuid, address) {
-    let data = {
+    const data = {
       url: this.getHost() + "/wallet/balance/" + uuid,
       method: 'get',
       params: {
         w: address
       }
     }
-    let res = await fetch(data);
+    const res = await fetch(data);
     return res;
   }
 
@@ -35,14 +35,14 @@ class JcExplorer extends Basic {
    * @memberof JcExplorer
    */
   async orderDetail(uuid, hash) {
-    let data = {
+    const data = {
       url: this.getHost() + "/hash/detail/" + uuid,
       method: 'get',
       params: {
         h: hash
       }
     }
-    let res = await fetch(data);
+    const res = await fetch(data);
     return res;
   }
 
@@ -58,8 +58,8 @@ class JcExplorer extends Basic {
    * @memberof JcExplorer
    */
   async getHistory(uuid, address, page, size, option) {
-    let url = this.getHost() + "/wallet/trans/" + uuid;
-    let data = {
+    const url = this.getHost() + "/wallet/trans/" + uuid;
+    const data = {
       url,
       method: 'get'
     }
@@ -80,7 +80,7 @@ class JcExplorer extends Basic {
     if (option && option.type) {
       data.params.t = option.type;
     }
-    let res = await fetch(data);
+    const res = await fetch(data);
     return res;
   }
 }
