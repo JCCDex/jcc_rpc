@@ -117,6 +117,16 @@ Parameters
 
 `sign`- `string`
 
+### setBrokerage
+
+```javascript
+let res = await instance.setBrokerage(sign)
+```
+
+Parameters
+
+`sign`- `string`
+
 ## Info API of JC
 
 [Interface Documents](https://github.com/JCCDex/jcc_server_doc)

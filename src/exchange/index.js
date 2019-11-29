@@ -141,12 +141,32 @@ class JcExchange extends Basic {
     return res;
   }
 
+  /**
+   * order detail
+   * @param {hex string} hash
+   */
   async orderDetail(hash) {
     const data = {
       url: this.getHost() + '/exchange/detail/' + hash,
       method: 'get'
     }
     const res = await fetch(data);
+    return res;
+  }
+
+  /**
+   * set brokerage
+   * @param {hex string} sign
+   */
+  async setBrokerage(sign) {
+    const params = {
+      url: this.getHost() + '/exchange/brokerage',
+      method: 'post',
+      data: {
+        sign
+      }
+    }
+    const res = await fetch(params);
     return res;
   }
 }
