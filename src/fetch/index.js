@@ -15,7 +15,7 @@ const isObject = (obj) => {
 const cancelPendingTask = (config) => {
   let pathname
   if (isObject(config)) {
-    const parsedUrl = new url.URL(config.url);
+    const parsedUrl = url.parse(config.url);
     pathname = parsedUrl.path + config.method;
   }
   pendingTasks.forEach((pendingTask, index) => {
@@ -29,7 +29,7 @@ const cancelPendingTask = (config) => {
 const removeFinishedTask = (config) => {
   let pathname
   if (isObject(config)) {
-    const parsedUrl = new url.URL(config.url);
+    const parsedUrl = url.parse(config.url);
     pathname = parsedUrl.path + config.method;
   }
   pendingTasks.forEach((pendingTask, index) => {
@@ -43,7 +43,7 @@ const pendingTasks = []
 
 service.interceptors.request.use(config => {
   cancelPendingTask(config)
-  const parsedUrl = new url.URL(config.url);
+  const parsedUrl = url.parse(config.url);
   config.cancelToken = new CancelToken(cancel => {
     pendingTasks.push({
       pathname: parsedUrl.path + config.method,
