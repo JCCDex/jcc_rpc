@@ -6,7 +6,7 @@
 
 ## Usage
 
-Call [getConfig](https://github.com/JCCDex/jcc_rpc/blob/master/docs/config.md) firstly. If success, the `infoHosts` value within response as exchange nodes.
+Call [getConfig](https://github.com/JCCDex/jcc_rpc/blob/master/docs/config.md) firstly. If success, the `infoHosts` value within response as info nodes.
 
 ```javascript
   const JcInfo = require("jcc_rpc").JcInfo
