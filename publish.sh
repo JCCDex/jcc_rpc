@@ -10,7 +10,7 @@ if test "$username" = "jccdex"; then
     if [ -d "lib" ];then
         rm -r lib
     fi
-    gulp build
+    npm run build
     npm publish
 else
     echo "please login with jccdex account"
