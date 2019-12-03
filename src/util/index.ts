@@ -29,19 +29,35 @@ export const pendingTasks = (() => {
         tasks = [];
     };
 
+    const get = () => {
+        return tasks;
+    };
+
     return {
         add,
         cancel,
         clear,
+        get,
         remove
     };
 })();
+
+const string2hex = (input: string): string => {
+    const str = unescape(encodeURIComponent(input));
+    let ouput = "";
+
+    for (let i = 0, len = str.length; i < len; i++) {
+        ouput += str.charCodeAt(i).toString(16);
+    }
+    return ouput.toUpperCase();
+};
 
 export const getPath = (config): string | null => {
     let pathname: string | null;
     try {
         const parsedUrl = new url.URL(config.url);
-        pathname = parsedUrl.pathname + config.method;
+        pathname = string2hex(parsedUrl.pathname + config.method);
+
     } catch (error) {
         pathname = null;
     }

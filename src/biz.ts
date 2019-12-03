@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import JcBase from "./base";
 import fetch from "./fetch";
 import { IResponse } from "./types";
