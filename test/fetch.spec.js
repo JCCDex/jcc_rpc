@@ -32,6 +32,7 @@ describe("test fetch", function() {
       },
       date: "Tue Dec 03 2019 11:37:57 GMT+0800 (China Standard Time)"
     })
+    sandbox.restore()
   })
 
   it("if response is object and code isn't '1010'", async () => {
@@ -79,6 +80,7 @@ describe("test fetch", function() {
 
   it("test cancel", async () => {
     const mock = new MockAdapter(fetch.default, { delayResponse: 100 });
+    const spy = sandbox.spy(pendingTasks, "remove");
     mock.onPost('http://localhost/exchange/sign_order').reply(200, {
       code: '0',
       data: {
@@ -98,6 +100,8 @@ describe("test fetch", function() {
     });
     let props = [fetch.default({ url: "http://localhost/exchange/sign_order", method: "post" }), fetch.default({ url: "http://localhost/exchange/sign_order", method: "post" })]
     let res = await Promise.all(props);
+    expect(spy.calledTwice).to.true;
+    sandbox.reset();
     expect(res).to.deep.nested.include({
       host: undefined,
       msg: 'pending request had been canceled',
@@ -120,5 +124,6 @@ describe("test fetch", function() {
         date: 'Tue Dec 03 2019 11:37:57 GMT+0800 (China Standard Time)'
       }
     ])
+    expect(spy.calledTwice).to.true;
   })
 })

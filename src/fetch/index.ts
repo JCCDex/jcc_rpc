@@ -31,36 +31,31 @@ service.interceptors.request.use((config) => {
 
 const handleResponse = (res) => {
   const response: any = {};
-  if (res.status === 200) {
-    const {
-      data
-    } = res;
-    const date = res.headers.date;
-    if (isObject(data)) {
-      if (data.code === "0") {
-        response.result = true;
-      } else {
-        response.result = false;
-      }
-      Object.assign(response, data);
-    } else {
+  const {
+    data
+  } = res;
+  const date = res.headers.date;
+  if (isObject(data)) {
+    if (data.code === "0") {
       response.result = true;
-      response.data = data;
+    } else {
+      response.result = false;
     }
-    // set server date
-    response.date = date;
-    return response;
+    Object.assign(response, data);
+  } else {
+    response.result = true;
+    response.data = data;
   }
-  return {
-    msg: res.statusText,
-    result: false
-  };
+  // set server date
+  response.date = date;
+  return response;
 };
 
 service.interceptors.response.use((response) => {
   pendingTasks.remove(response.config);
   return handleResponse(response);
 }, (error) => {
+  pendingTasks.remove(error.config);
   if (axios.isCancel(error)) {
     error.message = "pending request had been canceled";
   }
