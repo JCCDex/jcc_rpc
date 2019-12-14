@@ -13,7 +13,8 @@
     "test": "gulp",
     "test:node": "tsc && nyc --extension=.ts --reporter=lcov --reporter=html --reporter=text mocha --timeout=3000 test/*.spec.js",
     "tslint": "tslint --project tsconfig.json --config tslint.json",
-    "watch:tslint": "gulp dev"
+    "watch:tslint": "gulp dev",
+    "pretty": "prettier --write {src,test}/**/*.{js,ts}"
   },
   "repository": {
     "type": "git",
@@ -45,11 +46,19 @@
     "coveralls": "^3.0.9",
     "gulp": "^4.0.2",
     "gulp-shell": "^0.7.1",
+    "husky": "^3.1.0",
     "mocha": "^6.2.2",
     "nyc": "^14.1.1",
+    "prettier": "^1.19.1",
+    "pretty-quick": "^2.0.1",
     "sinon": "^7.5.0",
     "ts-loader": "^6.2.1",
     "tslint": "^5.20.1",
     "typescript": "^3.7.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
