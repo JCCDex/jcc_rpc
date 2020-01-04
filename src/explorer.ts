@@ -65,11 +65,11 @@ export default class JcExplorer extends JcBase {
    * @param {string} address
    * @param {number} page
    * @param {number} size
-   * @param {{ begin: string, end: string, currency: string, type: string }} options
+   * @param {{ begin: string, end: string, currency: string, type: string, buyOrsell: number, otherWallet: string }} options
    * @returns {Promise<IResponse>}
    * @memberof JcExplorer
    */
-  public async getHistory(uuid: string, address: string, page: number, size: number, options: { begin: string, end: string, currency: string, type: string }): Promise<IResponse> {
+  public async getHistory(uuid: string, address: string, page: number, size: number, options: { begin: string; end: string; currency: string; type: string; buyOrsell: number; otherWallet: string }): Promise<IResponse> {
     const url = super.getUrl() + "/wallet/trans/" + uuid;
     const data: any = {
       method: "get",
@@ -93,8 +93,69 @@ export default class JcExplorer extends JcBase {
       if (options.type) {
         data.params.t = options.type;
       }
+      if (options.buyOrsell) {
+        data.params.bs = options.buyOrsell;
+      }
+      if (options.otherWallet) {
+        data.params.aw = options.otherWallet;
+      }
     }
+    const res = await fetch(data);
+    return res;
+  }
 
+  /**
+   * request current order via explorer
+   *
+   * @param {string} uuid
+   * @param {string} address
+   * @param {number} page
+   * @param {number} size default 20, there are four choices of 10, 20, 50, 100
+   * @param {{ pair: string, buyOrsell: number }} options pair:swtc-cny or SWTC-CNY; buyOrsell:0 buy or sell,1 buy,2 sell
+   * @returns {Promise<IResponse>}
+   * @memberof JcExplorer
+   */
+  public async getOrders(uuid: string, address: string, page: number, size: number, options: { pair: string; buyOrsell: number }): Promise<IResponse> {
+    const url = super.getUrl() + "/wallet/offer/" + uuid;
+    const data: any = {
+      method: "get",
+      url
+    };
+    data.params = {
+      p: page,
+      s: size,
+      w: address
+    };
+    if (options) {
+      if (options.pair) {
+        data.params.c = options.pair;
+      }
+      if (options.buyOrsell) {
+        data.params.bs = options.buyOrsell;
+      }
+    }
+    const res = await fetch(data);
+    return res;
+  }
+
+  /**
+   * request tokens via explorer
+   *
+   * @param {string} uuid
+   * @param {{ currency: string }} options
+   * @returns {Promise<IResponse>}
+   * @memberof JcExplorer
+   */
+  public async getTokens(uuid: string, options: { currency: string }): Promise<IResponse> {
+    const url = super.getUrl() + "/sum/all/" + uuid;
+    const data: any = {
+      method: "get",
+      url
+    };
+    data.params = {};
+    if (options && options.currency) {
+      data.params.t = options.currency;
+    }
     const res = await fetch(data);
     return res;
   }

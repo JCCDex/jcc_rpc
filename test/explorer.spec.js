@@ -5,6 +5,7 @@ const sandbox = sinon.createSandbox();
 const chai = require("chai");
 const expect = chai.expect;
 const testAddress = "jpgWGpfHz8GxqUjz5nb6ej8eZJQtiF6KhH";
+const otherAddress = "jHMnuPhXBrVLLB4uSFwLYNUMxf8GiVtWcK";
 
 describe("test JcExplorer", function() {
   describe("test constructor", () => {
@@ -148,6 +149,122 @@ describe("test JcExplorer", function() {
             t: 1
           },
           url: "http://localhost/wallet/trans/123"
+        })
+      ).to.true;
+
+      stub.reset();
+      await inst.getHistory("123", testAddress, 1, 20, { buyOrsell: 1 });
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            p: 1,
+            s: 20,
+            w: testAddress,
+            bs: 1
+          },
+          url: "http://localhost/wallet/trans/123"
+        })
+      ).to.true;
+
+      stub.reset();
+      await inst.getHistory("123", testAddress, 1, 20, { otherWallet: otherAddress });
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            p: 1,
+            s: 20,
+            w: testAddress,
+            aw: otherAddress
+          },
+          url: "http://localhost/wallet/trans/123"
+        })
+      ).to.true;
+    });
+  });
+
+  describe("test getOrders", () => {
+    after(() => {
+      sandbox.restore();
+    });
+
+    it("call with right parameters", async () => {
+      const inst = new JcExplorer(["http://localhost"]);
+      const stub = sandbox.stub(fetch, "default");
+      stub.resolves();
+      await inst.getOrders("123", testAddress, 1, 20);
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            p: 1,
+            s: 20,
+            w: testAddress
+          },
+          url: "http://localhost/wallet/offer/123"
+        })
+      ).to.true;
+
+      stub.reset();
+      await inst.getOrders("123", testAddress, 1, 20, { pair: "swtc-cny" });
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            p: 1,
+            s: 20,
+            w: testAddress,
+            c: "swtc-cny"
+          },
+          url: "http://localhost/wallet/offer/123"
+        })
+      ).to.true;
+
+      stub.reset();
+      await inst.getOrders("123", testAddress, 1, 20, { buyOrsell: 1 });
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            p: 1,
+            s: 20,
+            w: testAddress,
+            bs: 1
+          },
+          url: "http://localhost/wallet/offer/123"
+        })
+      ).to.true;
+    });
+  });
+
+  describe("test getTokens", () => {
+    after(() => {
+      sandbox.restore();
+    });
+
+    it("call with right parameters", async () => {
+      const inst = new JcExplorer(["http://localhost"]);
+      const stub = sandbox.stub(fetch, "default");
+      stub.resolves();
+      await inst.getTokens("123");
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {},
+          url: "http://localhost/sum/all/123"
+        })
+      ).to.true;
+
+      stub.reset();
+      await inst.getTokens("123", { currency: "jjcc" });
+      expect(
+        stub.calledOnceWithExactly({
+          method: "get",
+          params: {
+            t: "jjcc"
+          },
+          url: "http://localhost/sum/all/123"
         })
       ).to.true;
     });
