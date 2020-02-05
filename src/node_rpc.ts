@@ -1,10 +1,10 @@
 import JcBase from "./base";
 const axios = require("axios");
+
 const service = axios.create({
   timeout: 30000,
   withCredentials: true
 });
-
 service.interceptors.response.use(
   (response) => {
     return response.data;
@@ -66,10 +66,10 @@ export default class JcNodeRpc extends JcBase {
    *
    * @link [How to sign and create](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L99)
    * @param {string} blob
-   * @returns {Promise<unknown>}
+   * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  public async createOrder(blob: string): Promise<unknown> {
+  public async createOrder(blob: string): Promise<any> {
     return this.submit(blob);
   }
 
@@ -78,10 +78,10 @@ export default class JcNodeRpc extends JcBase {
    *
    * @link [How to sign and cancel](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L124)
    * @param {string} blob
-   * @returns {Promise<unknown>}
+   * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  public async cancelOrder(blob: string): Promise<unknown> {
+  public async cancelOrder(blob: string): Promise<any> {
     return this.submit(blob);
   }
 
@@ -90,10 +90,10 @@ export default class JcNodeRpc extends JcBase {
    *
    * @link [How to sign and transfer](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L153)
    * @param {string} blob
-   * @returns {Promise<unknown>}
+   * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  public async transfer(blob: string): Promise<unknown> {
+  public async transfer(blob: string): Promise<any> {
     return this.submit(blob);
   }
 
@@ -102,10 +102,10 @@ export default class JcNodeRpc extends JcBase {
    *
    * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
    * @param {string} blob
-   * @returns {Promise<unknown>}
+   * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  public async setBrokerage(blob: string): Promise<unknown> {
+  public async setBrokerage(blob: string): Promise<any> {
     return this.submit(blob);
   }
 
@@ -114,10 +114,10 @@ export default class JcNodeRpc extends JcBase {
    *
    * @protected
    * @param {string} blob
-   * @returns {Promise<unknown>}
+   * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  protected async submit(blob: string): Promise<unknown> {
+  protected async submit(blob: string): Promise<any> {
     const data = {
       data: {
         method: "submit",
