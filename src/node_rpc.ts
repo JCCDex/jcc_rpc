@@ -41,7 +41,6 @@ export default class JcNodeRpc extends JcBase {
    */
   public async getSequence(address: string): Promise<number> {
     const data = {
-      url: super.getUrl(),
       data: {
         method: "account_info",
         params: [
@@ -50,7 +49,8 @@ export default class JcNodeRpc extends JcBase {
           }
         ]
       },
-      method: "post"
+      method: "post",
+      url: super.getUrl()
     };
     const res = await service(data);
     const status = res?.result?.status;
@@ -119,7 +119,6 @@ export default class JcNodeRpc extends JcBase {
    */
   protected async submit(blob: string): Promise<unknown> {
     const data = {
-      url: super.getUrl(),
       data: {
         method: "submit",
         params: [
@@ -128,7 +127,8 @@ export default class JcNodeRpc extends JcBase {
           }
         ]
       },
-      method: "post"
+      method: "post",
+      url: super.getUrl()
     };
     const res = await service(data);
     return res;
