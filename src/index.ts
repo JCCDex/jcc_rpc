@@ -30,12 +30,6 @@ import JcConfig from "./config";
 import JcExchange from "./exchange";
 import JcExplorer from "./explorer";
 import JcInfo from "./info";
+import JcNodeRpc from "./node_rpc";
 
-export {
-  JcBase,
-  JcBiz,
-  JcConfig,
-  JcExchange,
-  JcExplorer,
-  JcInfo
-};
+export { JcBase, JcBiz, JcConfig, JcExchange, JcExplorer, JcInfo, JcNodeRpc };
