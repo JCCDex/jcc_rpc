@@ -9,6 +9,7 @@ import { IResponse } from "./types";
  *
  * 2: `new JcExchange(["localhost"], 8080, false)`
  *
+ * @deprecated
  * @export
  * @class JcExchange
  * @extends {JcBase}
@@ -21,6 +22,7 @@ export default class JcExchange extends JcBase {
   /**
    * request balances
    *
+   * @deprecated
    * @param {string} address
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -37,6 +39,7 @@ export default class JcExchange extends JcBase {
   /**
    * request historic transactions
    *
+   * @deprecated
    * @param {string} address
    * @param {number} ledger
    * @param {number} seq
@@ -62,6 +65,7 @@ export default class JcExchange extends JcBase {
   /**
    * request historic payments
    *
+   * @deprecated
    * @param {string} address
    * @param {number} ledger
    * @param {number} seq
@@ -87,6 +91,7 @@ export default class JcExchange extends JcBase {
   /**
    * request current orders
    *
+   * @deprecated
    * @param {string} address
    * @param {number} page
    * @returns {Promise<IResponse>}
@@ -107,6 +112,7 @@ export default class JcExchange extends JcBase {
    *
    * [How to sign and create](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L99)
    *
+   * @deprecated
    * @param {string} sign
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -128,6 +134,7 @@ export default class JcExchange extends JcBase {
    *
    * [How to sign and cancel](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L124)
    *
+   * @deprecated
    * @param {string} sign
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -147,6 +154,7 @@ export default class JcExchange extends JcBase {
   /**
    * request sequence
    *
+   * @deprecated
    * @param {string} address
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -165,6 +173,7 @@ export default class JcExchange extends JcBase {
    *
    * [How to sign and transfer](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L153)
    *
+   * @deprecated
    * @param {string} sign
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -184,6 +193,7 @@ export default class JcExchange extends JcBase {
   /**
    * request order detail
    *
+   * @deprecated
    * @param {string} hash
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
@@ -200,6 +210,7 @@ export default class JcExchange extends JcBase {
   /**
    * set brokerage
    *
+   * @deprecated
    * @param {string} sign
    * @returns {Promise<IResponse>}
    * @memberof JcExchange
