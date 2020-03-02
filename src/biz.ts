@@ -1,8 +1,8 @@
 /* istanbul ignore file */
+/// <reference path = "./types/index.ts" />
 
 import JcBase from "./base";
 import fetch from "./fetch";
-import { IResponse } from "./types";
 const getUUID = require("jcc_common").getUUID;
 
 /**

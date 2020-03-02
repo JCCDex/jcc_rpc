@@ -1,8 +1,8 @@
 "use strict";
+/// <reference path = "./types/index.ts" />
 
 import JcBase from "./base";
 import fetch from "./fetch";
-import { IResponse } from "./types";
 
 /**
  * creation example:
@@ -16,7 +16,6 @@ import { IResponse } from "./types";
  * @extends {JcBase}
  */
 export default class JcInfo extends JcBase {
-
   constructor(...args) {
     super(...args);
   }
@@ -129,7 +128,7 @@ export default class JcInfo extends JcBase {
   public async getTickerFromCMC(token: string, currency: string): Promise<IResponse> {
     const params = {
       method: "get",
-      url: super.getUrl() + `/${token.toLowerCase()}_${currency.toLowerCase()}.json` + "?t=" + new Date().getTime(),
+      url: super.getUrl() + `/${token.toLowerCase()}_${currency.toLowerCase()}.json` + "?t=" + new Date().getTime()
     };
     const res = await fetch(params);
     return res;

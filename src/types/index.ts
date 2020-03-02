@@ -1,4 +1,4 @@
-export interface IResponse {
+declare interface IResponse {
   result: boolean;
   code?: string;
   data?: any;

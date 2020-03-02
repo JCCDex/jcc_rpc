@@ -1,6 +1,7 @@
+/// <reference path = "./types/index.ts" />
+
 import JcBase from "./base";
 import fetch from "./fetch";
-import { IResponse } from "./types";
 
 /**
  * creation example:
