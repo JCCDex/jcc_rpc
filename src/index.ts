@@ -34,16 +34,15 @@ import JcNodeRpc from "./node_rpc";
 
 export { JcBase, JcBiz, JcConfig, JcExchange, JcExplorer, JcInfo, JcNodeRpc };
 
-export const Factory = <T>() => {
+export const Factory = <T>(C: { new (...args): T }) => {
   let inst: T | null = null;
   /**
    * create singleton
    *
-   * @param {{ new(...args): T }} C
    * @param {*} args
    * @returns {T}
    */
-  const init = (C: { new (...args): T }, ...args): T => {
+  const init = (...args): T => {
     return inst || (inst = new C(...args));
   };
 
@@ -71,9 +70,9 @@ export const Factory = <T>() => {
   };
 };
 
-export const ConfigFactory = Factory<JcConfig>();
-export const InfoFactory = Factory<JcInfo>();
-export const BizFactory = Factory<JcBiz>();
-export const ExplorerFactory = Factory<JcExplorer>();
-export const NodeRpcFactory = Factory<JcNodeRpc>();
-export const ExchangeFactory = Factory<JcExchange>();
+export const ConfigFactory = Factory<JcConfig>(JcConfig);
+export const InfoFactory = Factory<JcInfo>(JcInfo);
+export const BizFactory = Factory<JcBiz>(JcBiz);
+export const ExplorerFactory = Factory<JcExplorer>(JcExplorer);
+export const NodeRpcFactory = Factory<JcNodeRpc>(JcNodeRpc);
+export const ExchangeFactory = Factory<JcExchange>(JcExchange);
