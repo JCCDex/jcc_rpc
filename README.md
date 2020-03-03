@@ -14,3 +14,49 @@ npm install jcc_rpc
 ## Docs
 
 see [docs](https://github.com/JCCDex/jcc_rpc/tree/master/docs)
+
+## SubscribeTask
+
+Added [`SubscribeTask`](https://github.com/JCCDex/jcc_rpc/blob/master/src/subscribe.ts) class since v0.2.3.
+
+```javascript
+// By requesting config as an example
+
+const { SubscribeFactory, ConfigFactory } = require("jcc_rpc");
+
+const configInst = ConfigFactory.init(["https://jccdex.cn"]);
+
+const subscribeInst = SubscribeFactory.init();
+
+// task name
+const TASK_NAME = "pollingConfig";
+// task function
+const task = configInst.getConfig.bind(configInst);
+// whether polling, default true
+const polling = true;
+// polling interval, default 5000(ms)
+const timer = 10000;
+
+const callback = (err, res) => {
+  console.log(err);
+  console.log(res);
+};
+
+subscribeInst
+  // register task
+  .register(TASK_NAME, task, polling, timer)
+  // watch task
+  .on(TASK_NAME, callback)
+  // start task
+  .start(TASK_NAME)
+  // stop polling given task
+  .stopPolling(TASK_NAME)
+  // remove given task
+  .removeTask(TASK_NAME)
+  // remove all tasks
+  .removeAll()
+  // stop polling all tasks
+  .stopAll()
+  // cancel watch
+  .off(TASK_NAME, callback);
+```
