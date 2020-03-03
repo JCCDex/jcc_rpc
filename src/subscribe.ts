@@ -31,32 +31,32 @@ interface ISubscribeTask {
    * Stop polling
    *
    * @param {string} taskName
-   * @returns {SubscribeTask}
+   * @returns {ISubscribeTask}
    * @memberof ISubscribeTask
    */
-  stopPolling(taskName: string): SubscribeTask;
+  stopPolling(taskName: string): ISubscribeTask;
   /**
    * Stop all polling tasks
    *
-   * @returns {SubscribeTask}
+   * @returns {ISubscribeTask}
    * @memberof ISubscribeTask
    */
-  stopAll(): SubscribeTask;
+  stopAll(): ISubscribeTask;
   /**
    * Remove registered task
    *
    * @param {string} taskName
-   * @returns {SubscribeTask}
+   * @returns {ISubscribeTask}
    * @memberof ISubscribeTask
    */
-  removeTask(taskName: string): SubscribeTask;
+  removeTask(taskName: string): ISubscribeTask;
   /**
    * Remove all registered tasks
    *
-   * @returns {SubscribeTask}
+   * @returns {ISubscribeTask}
    * @memberof ISubscribeTask
    */
-  removeAll(): SubscribeTask;
+  removeAll(): ISubscribeTask;
 }
 
 // interface Constructable {
