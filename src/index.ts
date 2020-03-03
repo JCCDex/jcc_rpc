@@ -48,16 +48,16 @@ export const Factory = <T>() => {
   };
 
   /**
-   * get instance
+   * get singleton
    *
-   * @returns {T}
+   * @returns {(T | null)}
    */
   const get = (): T | null => {
     return inst;
   };
 
   /**
-   * destroy instance
+   * destroy singleton
    *
    */
   const destroy = () => {
