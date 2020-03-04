@@ -35,7 +35,7 @@ import SubscribeTask from "./subscribe";
 
 export { JcBase, JcBiz, JcConfig, JcExchange, JcExplorer, JcInfo, JcNodeRpc, SubscribeTask };
 
-export const Factory = <T>(C: { new (...args): T }) => {
+export const Factory = <T>(C: new (...args) => T) => {
   let inst: T | null = null;
   /**
    * create singleton
