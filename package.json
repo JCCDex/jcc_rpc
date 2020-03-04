@@ -10,7 +10,7 @@
     "build": "tsc -p tsconfig.json",
     "deploy": "./publish.sh",
     "coveralls": "cat ./coverage/lcov.info | coveralls",
-    "test": "npm run tslint && npm run test:node",
+    "test": "npm run test:node",
     "test:node": "tsc && nyc --extension=.ts --reporter=lcov --reporter=html --reporter=text mocha --timeout=3000 test/*.spec.js",
     "tslint": "tslint --project tsconfig.json --config tslint.json",
     "pretty": "prettier --write {src,test}/**/*.{js,ts}"
@@ -56,7 +56,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged"
+      "pre-commit": "npm run tslint && pretty-quick --staged"
     }
   }
 }
