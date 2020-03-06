@@ -2,8 +2,7 @@ import JcBase from "./base";
 const axios = require("axios");
 
 const service = axios.create({
-  timeout: 30000,
-  withCredentials: true
+  timeout: 30000
 });
 service.interceptors.response.use(
   (response) => {
