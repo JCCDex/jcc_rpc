@@ -109,6 +109,18 @@ export default class JcNodeRpc extends JcBase {
   }
 
   /**
+   * set signer list with signed data
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async setSignerList(blob: string): Promise<any> {
+    return this.submit(blob);
+  }
+
+  /**
    * submit transaction
    *
    * @protected
