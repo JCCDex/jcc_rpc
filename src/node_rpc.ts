@@ -121,6 +121,18 @@ export default class JcNodeRpc extends JcBase {
   }
 
   /**
+   * disable/enable account master key
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async setAccount(blob: string): Promise<any> {
+    return this.submit(blob);
+  }
+
+  /**
    * submit transaction
    *
    * @protected
