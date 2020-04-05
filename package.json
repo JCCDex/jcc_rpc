@@ -1,6 +1,6 @@
 {
   "name": "jcc_rpc",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "rpc api of jcc",
   "files": [
     "lib"
