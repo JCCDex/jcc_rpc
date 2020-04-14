@@ -148,17 +148,17 @@ export default class JcNodeRpc extends JcBase {
    * submit multi sign transaction
    *
    * @protected
-   * @param {string} blob
+   * @param {string} params
    * @returns {Promise<any>}
    * @memberof JcNodeRpc
    */
-  public async submit_multisigned(blob: string): Promise<any> {
+  public async submit_multisigned(params: any): Promise<any> {
     const data = {
       data: {
         method: "submit_multisigned",
         params: [
           {
-            tx_blob: blob
+            tx_json: params
           }
         ]
       },
