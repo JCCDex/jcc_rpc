@@ -27,13 +27,12 @@
 import JcBase from "./base";
 import JcBiz from "./biz";
 import JcConfig from "./config";
-import JcExchange from "./exchange";
 import JcExplorer from "./explorer";
 import JcInfo from "./info";
 import JcNodeRpc from "./node_rpc";
 import SubscribeTask from "./subscribe";
 
-export { JcBase, JcBiz, JcConfig, JcExchange, JcExplorer, JcInfo, JcNodeRpc, SubscribeTask };
+export { JcBase, JcBiz, JcConfig, JcExplorer, JcInfo, JcNodeRpc, SubscribeTask };
 
 export const Factory = <T>(C: new (...args) => T) => {
   let inst: T | null = null;
@@ -76,5 +75,4 @@ export const InfoFactory = Factory<JcInfo>(JcInfo);
 export const BizFactory = Factory<JcBiz>(JcBiz);
 export const ExplorerFactory = Factory<JcExplorer>(JcExplorer);
 export const NodeRpcFactory = Factory<JcNodeRpc>(JcNodeRpc);
-export const ExchangeFactory = Factory<JcExchange>(JcExchange);
 export const SubscribeFactory = Factory<SubscribeTask>(SubscribeTask);
