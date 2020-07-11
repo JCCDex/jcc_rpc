@@ -61,6 +61,31 @@ export default class JcNodeRpc extends JcBase {
   }
 
   /**
+   * request transaction detail
+   *
+   * @param {string} hash
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async requestTransaction(hash: string): Promise<any> {
+    const data = {
+      data: {
+        method: "tx",
+        params: [
+          {
+            binary: false,
+            transaction: hash
+          }
+        ]
+      },
+      method: "post",
+      url: super.getUrl()
+    };
+    const res = await service(data);
+    return res;
+  }
+
+  /**
    * create order with signed data
    *
    * @link [How to sign and create](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L99)
