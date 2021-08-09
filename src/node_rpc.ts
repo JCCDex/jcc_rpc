@@ -140,6 +140,62 @@ export default class JcNodeRpc extends JcBase {
   }
 
   /**
+   * add blacklist with signed data
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @param {string} _url rpc server host
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async addBlackList(blob: string, _url?: string): Promise<any> {
+    if (_url) return this.submit(blob, _url);
+    else return this.submit(blob);
+  }
+
+  /**
+   * remove blacklist with signed data
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @param {string} _url rpc server host
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async removeBlackList(blob: string, _url?: string): Promise<any> {
+    if (_url) return this.submit(blob, _url);
+    else return this.submit(blob);
+  }
+
+  /**
+   * set ManageIssuer with signed data
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @param {string} _url rpc server host
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async setManageIssuer(blob: string, _url?: string): Promise<any> {
+    if (_url) return this.submit(blob, _url);
+    else return this.submit(blob);
+  }
+
+  /**
+   * issueSet with signed data
+   *
+   * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
+   * @param {string} blob
+   * @param {string} _url rpc server host
+   * @returns {Promise<any>}
+   * @memberof JcNodeRpc
+   */
+  public async issueSet(blob: string, _url?: string): Promise<any> {
+    if (_url) return this.submit(blob, _url);
+    else return this.submit(blob);
+  }
+
+  /**
    * set signer list with signed data
    *
    * @link [How to sign and set](https://github.com/JCCDex/jcc_exchange/blob/master/src/index.ts#L182)
