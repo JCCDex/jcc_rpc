@@ -1,14 +1,22 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "module": "commonjs",
     "lib": [
       "es2015"
     ],
     "outDir": "lib",
     "rootDir": "src",
     "moduleResolution": "node",
+    "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
+    "skipLibCheck": true,
+    "strict": false,
+    "strictPropertyInitialization": false,
+    "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
+    "types": ["node"],
     "declaration": true,
     "experimentalDecorators": true,
     "sourceMap": true

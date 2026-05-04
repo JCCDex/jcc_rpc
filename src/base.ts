@@ -1,4 +1,4 @@
-import * as assert from "assert";
+import assert = require("assert");
 
 export default class JcBase {
 
